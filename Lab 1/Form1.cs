@@ -171,35 +171,40 @@ namespace Lab_1
 
         private void эрозияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            kernel = form2.GetRes();
+            //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
             Filters filter = new ErosionFilter(kernel, 1, 1);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void размыканиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            kernel = form2.GetRes();
+            //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
             Filters filter = new OpeningFilter(kernel, 1, 1);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void замыканиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            kernel = form2.GetRes();
+            //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
             Filters filter = new ClosingFilter(kernel, 1, 1);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            kernel = form2.GetRes();
+            //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
             Filters filter = new TopHatFilter(kernel, 1, 1);
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
         private void blackHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            kernel = form2.GetRes();
+            //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
             Filters filter = new BlackHatFilter(kernel, 1, 1);
             backgroundWorker1.RunWorkerAsync(filter);
         }
