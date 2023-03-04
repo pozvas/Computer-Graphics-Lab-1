@@ -287,7 +287,7 @@
             // 
             this.приюттаToolStripMenuItem.Name = "приюттаToolStripMenuItem";
             this.приюттаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.приюттаToolStripMenuItem.Text = "Приютта";
+            this.приюттаToolStripMenuItem.Text = "Прюитта";
             this.приюттаToolStripMenuItem.Click += new System.EventHandler(this.приюттаToolStripMenuItem_Click);
             // 
             // математическаяМорфологияToolStripMenuItem
