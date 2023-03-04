@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Lab_1
 {
-    enum Borders{
-        X, Y
-    }
+
 
     public partial class Form1 : Form
     {
         Bitmap _startImage;
         Bitmap _image;
+        bool[,] kernel;
+        Form2 form2;
         public Form1()
         {
             InitializeComponent();
@@ -131,17 +131,6 @@ namespace Lab_1
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-        private void поХToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters filter = new SobelFilter(Borders.X);
-            backgroundWorker1.RunWorkerAsync(filter);
-        }
-
-        private void поYToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Filters filter = new SobelFilter(Borders.Y);
-            backgroundWorker1.RunWorkerAsync(filter);
-        }
 
         private void медианныйToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -152,7 +141,75 @@ namespace Lab_1
 
         private void собеляToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Filters filter = new SobelFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
 
+        private void щарраToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float[,] x = { { 3, 0, -3 }, { 10, 0, -10 }, { 3, 0, -3 } };
+            float[,] y = { { 3, 10, 3 }, { 0, 0, 0 }, { -3, -10, -3 } };
+            Filters filter = new SobelFilter(x, y);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void приюттаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            float[,] x = { { -1, 0, 1 }, { -1, 0, 1 }, { -1, 0, 1 } };
+            float[,] y = { { -1, -1, -1 }, { 0, 0, 0 }, { 1, 1, 1 } };
+            Filters filter = new SobelFilter(x, y);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void наращиваниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            kernel = form2.GetRes();
+            //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            DilationFilter filter = new DilationFilter(kernel, 1, 1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void эрозияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            Filters filter = new ErosionFilter(kernel, 1, 1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void размыканиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            Filters filter = new OpeningFilter(kernel, 1, 1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void замыканиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            Filters filter = new ClosingFilter(kernel, 1, 1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            Filters filter = new TopHatFilter(kernel, 1, 1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void blackHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
+            Filters filter = new BlackHatFilter(kernel, 1, 1);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void задатьСтруктурныйЭлементToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form2 = new Form2();
+            form2.Owner = this;
+            form2.Show();
+            
         }
     }
 }

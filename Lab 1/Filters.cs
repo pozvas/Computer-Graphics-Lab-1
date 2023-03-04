@@ -10,9 +10,12 @@ namespace Lab_1
 {
     abstract class Filters
     {
+       protected Bitmap resultImage;
        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
-            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
+            resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
+            var g = Graphics.FromImage(resultImage); 
+            g.Clear(Color.White);
             for (int i = 0; i < sourceImage.Width; i++){
                 worker.ReportProgress((int)((float)i / resultImage.Width * 100));
                 if (worker.CancellationPending)

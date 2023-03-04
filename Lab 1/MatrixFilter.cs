@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace Lab_1
         {
             this.kernel = kernel;
         }
+
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int i, int j)
         {
             int radiusX = kernel.GetLength(0) / 2;
