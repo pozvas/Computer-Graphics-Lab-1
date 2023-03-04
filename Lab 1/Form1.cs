@@ -216,5 +216,29 @@ namespace Lab_1
             form2.Show();
             
         }
+
+        private void motionBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MotionBlurFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void переносToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new TransferFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void эффектстеклаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GlassFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void линейноеРастяжениеToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Filters filter = new LinearStretchingFilter(_image);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

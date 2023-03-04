@@ -59,6 +59,7 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GaussianFilter.cs" />
+    <Compile Include="GlassFilter.cs" />
     <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="GreyWorldFIlter.cs" />
     <Compile Include="Filters.cs" />
@@ -70,9 +71,11 @@
     </Compile>
     <Compile Include="IncreasingFIlter.cs" />
     <Compile Include="InvertFilter.cs" />
+    <Compile Include="LinearStretchingFilter.cs" />
     <Compile Include="MatrixFilter.cs" />
     <Compile Include="MedianFilter.cs" />
     <Compile Include="DilationFilter.cs" />
+    <Compile Include="MotionBlurFilter.cs" />
     <Compile Include="OpeningFilter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="SharpnessFilter.cs" />
     <Compile Include="SobelFilter.cs" />
     <Compile Include="TopHatFilter.cs" />
+    <Compile Include="TransferFilter.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

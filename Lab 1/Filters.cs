@@ -14,7 +14,7 @@ namespace Lab_1
        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
             resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
-            var g = Graphics.FromImage(resultImage); 
+            var g = Graphics.FromImage(resultImage);
             g.Clear(Color.White);
             for (int i = 0; i < sourceImage.Width; i++){
                 worker.ReportProgress((int)((float)i / resultImage.Width * 100));
