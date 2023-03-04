@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="GaussianFilter.cs" />
     <Compile Include="GlassFilter.cs" />
+    <Compile Include="MaxFilter.cs" />
     <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="GreyWorldFIlter.cs" />
     <Compile Include="Filters.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="SobelFilter.cs" />
     <Compile Include="TopHatFilter.cs" />
     <Compile Include="TransferFilter.cs" />
+    <Compile Include="TurnFilter.cs" />
+    <Compile Include="WavesFilter1.cs" />
+    <Compile Include="WavesFilter2.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

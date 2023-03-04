@@ -12,9 +12,14 @@ namespace Lab_1
         // применить обе матрицы и быбрать больший цвет
         float[,] kernelY = { { -1, -2, -1 }, { 0, 0, 0 }, { 1, 2, 1 } };
         float[,] kernelX = { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+        bool flag = true;
         public SobelFilter()
         {
 
+        }
+        public SobelFilter(bool _flag)
+        {
+            flag = _flag;
         }
         public SobelFilter(float[,] a, float[,] b)
         {
@@ -66,20 +71,22 @@ namespace Lab_1
             float resultR = (float)Math.Sqrt(Math.Pow(resultRX, 2) + Math.Pow(resultRY, 2));
             float resultG = (float)Math.Sqrt(Math.Pow(resultGX, 2) + Math.Pow(resultGY, 2));
             float resultB = (float)Math.Sqrt(Math.Pow(resultGX, 2) + Math.Pow(resultGY, 2));
-
-            return Color.FromArgb(
-                Clamp(
-                    (int)(0.36 * resultR) +
-                    (int)(0.53 * resultG) +
-                    (int)(0.11 * resultB), 0, 255),
-                Clamp(
-                    (int)(0.36 * resultR) +
-                    (int)(0.53 * resultG) +
-                    (int)(0.11 * resultB), 0, 255),
-                Clamp(
-                    (int)(0.36 * resultR) +
-                    (int)(0.53 * resultG) +
-                    (int)(0.11 * resultB), 0, 255));
+            if (flag)
+                return Color.FromArgb(
+                    Clamp(
+                        (int)(0.36 * resultR) +
+                        (int)(0.53 * resultG) +
+                        (int)(0.11 * resultB), 0, 255),
+                    Clamp(
+                        (int)(0.36 * resultR) +
+                        (int)(0.53 * resultG) +
+                        (int)(0.11 * resultB), 0, 255),
+                    Clamp(
+                        (int)(0.36 * resultR) +
+                        (int)(0.53 * resultG) +
+                        (int)(0.11 * resultB), 0, 255));
+            else
+                return Color.FromArgb(Clamp((int)resultR, 0, 255), Clamp((int)resultG, 0, 255), Clamp((int)resultB, 0, 255));
         }
     }
 }

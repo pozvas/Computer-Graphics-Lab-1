@@ -240,5 +240,36 @@ namespace Lab_1
             Filters filter = new LinearStretchingFilter(_image);
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void светящиесяКраяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new MedianFilter();
+            Bitmap image = filter.processImage(_image, backgroundWorker1);
+            filter = new SobelFilter(false);
+            Bitmap image2 = filter.processImage(image, backgroundWorker1);
+            filter = new MaxFilter();
+            _image = image2;
+            backgroundWorker1.RunWorkerAsync(filter);
+
+            
+        }
+
+        private void поворотToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new TurnFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void волны1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new WavesFilter1();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void волны2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new WavesFilter2();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
