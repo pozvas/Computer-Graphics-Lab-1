@@ -163,50 +163,98 @@ namespace Lab_1
 
         private void наращиваниеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            kernel = form2.GetRes();
+            try
+            {
+                kernel = form2.GetRes();
+                DilationFilter filter = new DilationFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
-            DilationFilter filter = new DilationFilter(kernel, 1, 1);
-            backgroundWorker1.RunWorkerAsync(filter);
+            
         }
 
         private void эрозияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            kernel = form2.GetRes();
+            try
+            {
+                kernel = form2.GetRes();
+                Filters filter = new ErosionFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
-            Filters filter = new ErosionFilter(kernel, 1, 1);
-            backgroundWorker1.RunWorkerAsync(filter);
+            
         }
 
         private void размыканиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            kernel = form2.GetRes();
+            try
+            {
+                kernel = form2.GetRes();
+                Filters filter = new OpeningFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
-            Filters filter = new OpeningFilter(kernel, 1, 1);
-            backgroundWorker1.RunWorkerAsync(filter);
+           
         }
 
         private void замыканиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            kernel = form2.GetRes();
+            try
+            {
+                kernel = form2.GetRes();
+                Filters filter = new ClosingFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
-            Filters filter = new ClosingFilter(kernel, 1, 1);
-            backgroundWorker1.RunWorkerAsync(filter);
+            
         }
 
         private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            kernel = form2.GetRes();
+            try
+            {
+                kernel = form2.GetRes();
+                Filters filter = new TopHatFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
-            Filters filter = new TopHatFilter(kernel, 1, 1);
-            backgroundWorker1.RunWorkerAsync(filter);
+            
         }
 
         private void blackHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            kernel = form2.GetRes();
+            try
+            {
+                kernel = form2.GetRes();
+                Filters filter = new BlackHatFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //bool[,] kernel = { { false, false, false }, { false, false, false }, { false, false, false } };
-            Filters filter = new BlackHatFilter(kernel, 1, 1);
-            backgroundWorker1.RunWorkerAsync(filter);
+            
         }
 
         private void задатьСтруктурныйЭлементToolStripMenuItem_Click(object sender, EventArgs e)

@@ -11,7 +11,8 @@ namespace Lab_1
     abstract class Filters
     {
        protected Bitmap resultImage;
-       public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+       
+        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
             resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
             var g = Graphics.FromImage(resultImage);
