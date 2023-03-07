@@ -76,13 +76,16 @@
     <Compile Include="MatrixFilter.cs" />
     <Compile Include="MedianFilter.cs" />
     <Compile Include="DilationFilter.cs" />
+    <Compile Include="MorfGradFilter.cs" />
     <Compile Include="MotionBlurFilter.cs" />
     <Compile Include="OpeningFilter.cs" />
+    <Compile Include="PerfectReflector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SepiaFilter.cs" />
     <Compile Include="SharpnessFilter.cs" />
     <Compile Include="SobelFilter.cs" />
+    <Compile Include="SourceFilter.cs" />
     <Compile Include="TopHatFilter.cs" />
     <Compile Include="TransferFilter.cs" />
     <Compile Include="TurnFilter.cs" />

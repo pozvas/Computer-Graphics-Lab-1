@@ -319,5 +319,31 @@ namespace Lab_1
             Filters filter = new WavesFilter2();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void градиентToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                kernel = form2.GetRes();
+                Filters filter = new MorfGradFilter(kernel, 1, 1);
+                backgroundWorker1.RunWorkerAsync(filter);
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Структурный элемент не задан", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void идеальныйОтражательToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new PerfectReflector(_image);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void коррескцияССопорныйЦветомToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SourceFilter(Color.White, Color.BlueViolet);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
